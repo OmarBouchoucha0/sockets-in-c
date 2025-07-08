@@ -1,0 +1,21 @@
+# Ignore all shell script files
+*.sh
+
+# Ignore compiled executables
+server
+client
+
+# Ignore object files
+*.o
+
+# Ignore other common build artifacts
+*.a
+*.so
+*.dylib
+
+# Ignore editor files
+*~
+.*.swp
+.*.swo
+*.tmp
+

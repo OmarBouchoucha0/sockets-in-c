@@ -2,21 +2,19 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -D_GNU_SOURCE
 
-# Target executable name
-TARGET = main
-
-# Source files
-SOURCES = main.c
-
-# Object files (automatically generated from source files)
-OBJECTS = $(SOURCES:.c=.o)
+# Target executable names
+TARGETS = server client
 
 # Default target
-all: $(TARGET)
+all: $(TARGETS)
 
-# Build the executable
-$(TARGET): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(TARGET)
+# Build the server executable
+server: server.o
+	$(CC) server.o -o server
+
+# Build the client executable
+client: client.o
+	$(CC) client.o -o client
 
 # Build object files
 %.o: %.c
@@ -24,7 +22,7 @@ $(TARGET): $(OBJECTS)
 
 # Clean up generated files
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f server.o client.o $(TARGETS)
 
 # Rebuild everything
 rebuild: clean all
