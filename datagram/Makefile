@@ -3,18 +3,17 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -D_GNU_SOURCE
 
 # Target executable names
-TARGETS = server client
-
+TARGETS = listner talker
 # Default target
 all: $(TARGETS)
 
 # Build the server executable
-server: server.o
-	$(CC) server.o -o server
+listner: listner.o
+	$(CC) listner.o -o listner
 
 # Build the client executable
-client: client.o
-	$(CC) client.o -o client
+talker: talker.o
+	$(CC) talker.o -o talker
 
 # Build object files
 %.o: %.c
@@ -22,7 +21,7 @@ client: client.o
 
 # Clean up generated files
 clean:
-	rm -f server.o client.o $(TARGETS)
+	rm -f talker.o listner.o $(TARGETS)
 
 # Rebuild everything
 rebuild: clean all
